@@ -18,5 +18,5 @@ char* Base::GetName()
 
 void Base::SetName(char* name)
 {
-	f_name = 
+	f_name = name;
 }
