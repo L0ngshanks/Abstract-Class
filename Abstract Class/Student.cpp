@@ -1,5 +1,7 @@
 #include "Student.h"
 
+#include <string>
+
 
 
 Student::Student()
@@ -11,6 +13,11 @@ Student::~Student()
 {
 	delete f_DegreeProgram;
 }
+
+char* Student::GetName()
+{}
+void Student::SetName()
+{}
 
 unsigned int Student::GetGPA()
 {
@@ -32,7 +39,14 @@ char* Student::GetDegreeProgram()
 {
 	return f_DegreeProgram;
 }
-void Student::SetDegreeProgram(char* degreeProgram)
+void Student::SetDegreeProgram(char* _degreeProgram)
 {
-	f_DegreeProgram = degreeProgram;
+	delete[] f_DegreeProgram;
+
+	int length = strlen(_degreeProgram) + 1;
+	f_DegreeProgram = new char[length];
+
+	strcpy_s(f_name, length, _degreeProgram);
 }
+
+

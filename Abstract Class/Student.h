@@ -11,6 +11,8 @@ public:
 	Student();
 	~Student();
 
+	char* GetName();
+	void SetName();
 	unsigned int GetGPA();
 	void SetGPA(unsigned int gpa);
 	unsigned int GetLikabilityRating();

@@ -1,5 +1,7 @@
 #include "Base.h"
 
+#include <string>
+
 
 
 Base::Base()
@@ -17,7 +19,12 @@ char* Base::GetName()
 	return f_name;
 }
 
-void Base::SetName(char* name)
+void Base::SetName(char* _name)
 {
-	f_name = name;
+	delete[] f_name;
+
+	int length = strlen(_name) + 1;
+	f_name = new char[length];
+
+	strcpy_s(f_name, length, _name);
 }

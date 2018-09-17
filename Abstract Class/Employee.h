@@ -10,6 +10,8 @@ public:
 	Employee();
 	~Employee();
 
+	char* GetName();
+	void SetName();
 	unsigned int GetSalary();
 	void SetSalary(unsigned int salary);
 	char* GetDepartment();
