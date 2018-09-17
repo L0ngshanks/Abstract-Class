@@ -8,6 +8,17 @@ Base::Base()
 {
 }
 
+Base::Base(Base& _other)
+{
+	if (this != &_other)
+		SetName(_other.GetName());
+}
+
+Base& Base::operator=(Base& _other)
+{
+	if(this != &_other)
+		SetName(_other.GetName());
+}
 
 Base::~Base()
 {

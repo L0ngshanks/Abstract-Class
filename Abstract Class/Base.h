@@ -6,6 +6,8 @@ protected:
 
 public:
 	Base();
+	Base(Base& _other);
+	virtual Base& operator=(Base& _other);
 	virtual ~Base();
 
 	virtual char* GetName() = 0;
