@@ -17,7 +17,7 @@ Employee::Employee(Employee& _other)
 {
 	if (this != &_other)
 	{
-		Base::SetName(_other.GetName());
+		SetName(_other.GetName());
 		SetDepartment(_other.GetDepartment());
 	}
 }
@@ -26,7 +26,7 @@ Employee& Employee::operator=(Employee& _other)
 {
 	if (this != &_other)
 	{
-		Base::SetName(_other.GetName());
+		SetName(_other.GetName());
 		SetDepartment(_other.GetDepartment());
 	}
 

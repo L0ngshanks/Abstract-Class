@@ -1,7 +1,8 @@
 #include "Main.h"
 #include "Base.h"
 #include "Employee.h"
-#include "Base.h"
+#include "Student.h"
+
 #include "stdafx.h"
 #include "Validation.h"
 
@@ -11,6 +12,19 @@ using namespace std;
 
 Main::Main()
 {
+}
+
+char* Main::CaptureName()
+{
+	char* name;
+	system("cls");
+	cout << "Employee Name: ";
+	cin >> name;
+
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+
+	return name;
 }
 
 void Main::AddRecord()

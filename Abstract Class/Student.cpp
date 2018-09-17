@@ -18,7 +18,7 @@ Student::Student(Student& _other)
 {
 	if (this != &_other)
 	{
-		Base::SetName(_other.GetName());
+		SetName(_other.GetName());
 		SetDegreeProgram(_other.GetDegreeProgram());
 	}
 }
@@ -27,7 +27,7 @@ Student& Student::operator=(Student& _other)
 {
 	if (this != &_other)
 	{
-		Base::SetName(_other.GetName());
+		SetName(_other.GetName());
 		SetDegreeProgram(_other.GetDegreeProgram());
 	}
 
