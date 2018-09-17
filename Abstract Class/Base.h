@@ -6,9 +6,9 @@ protected:
 
 public:
 	Base();
-	~Base();
+	virtual ~Base();
 
-	char* GetName();
-	void SetName(char* name);
+	virtual char* GetName() = 0;
+	virtual void SetName(char* name) = 0;
 };
 

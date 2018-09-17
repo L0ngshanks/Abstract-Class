@@ -9,6 +9,7 @@ Base::Base()
 
 Base::~Base()
 {
+	delete f_name;
 }
 
 char* Base::GetName()

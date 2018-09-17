@@ -9,6 +9,7 @@ Student::Student()
 
 Student::~Student()
 {
+	delete f_DegreeProgram;
 }
 
 unsigned int Student::GetGPA()

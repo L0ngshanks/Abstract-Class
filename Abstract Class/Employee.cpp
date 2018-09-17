@@ -9,6 +9,7 @@ Employee::Employee()
 
 Employee::~Employee()
 {
+	delete f_Department;
 }
 
 unsigned int Employee::GetSalary()
