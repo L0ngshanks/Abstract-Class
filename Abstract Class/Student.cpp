@@ -14,10 +14,34 @@ Student::~Student()
 	delete f_DegreeProgram;
 }
 
+Student::Student(Student& _other)
+{
+	if (this != &_other)
+	{
+		Base::SetName(_other.GetName());
+		SetDegreeProgram(_other.GetDegreeProgram());
+	}
+}
+
+Student& Student::operator=(Student& _other)
+{
+	if (this != &_other)
+	{
+		Base::SetName(_other.GetName());
+		SetDegreeProgram(_other.GetDegreeProgram());
+	}
+
+	return *this;
+}
+
 char* Student::GetName()
-{}
-void Student::SetName()
-{}
+{
+	return Base::GetName();
+}
+void Student::SetName(char* _name)
+{
+	Base::SetName(_name);
+}
 
 unsigned int Student::GetGPA()
 {

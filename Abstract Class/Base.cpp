@@ -18,6 +18,8 @@ Base& Base::operator=(Base& _other)
 {
 	if(this != &_other)
 		SetName(_other.GetName());
+
+	return *this;
 }
 
 Base::~Base()

@@ -11,8 +11,11 @@ public:
 	Student();
 	~Student();
 
+	Student(Student& _other);
+	Student& operator=(Student& _other);
+
 	char* GetName();
-	void SetName();
+	void SetName(char* _name);
 	unsigned int GetGPA();
 	void SetGPA(unsigned int gpa);
 	unsigned int GetLikabilityRating();

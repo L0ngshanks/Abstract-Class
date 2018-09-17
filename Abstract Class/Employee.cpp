@@ -13,10 +13,34 @@ Employee::~Employee()
 	delete f_Department;
 }
 
+Employee::Employee(Employee& _other)
+{
+	if (this != &_other)
+	{
+		Base::SetName(_other.GetName());
+		SetDepartment(_other.GetDepartment());
+	}
+}
+
+Employee& Employee::operator=(Employee& _other)
+{
+	if (this != &_other)
+	{
+		Base::SetName(_other.GetName());
+		SetDepartment(_other.GetDepartment());
+	}
+
+	return *this;
+}
+
 char* Employee::GetName()
-{}
-void Employee::SetName()
-{}
+{
+	return Base::GetName();
+}
+void Employee::SetName(char* _name)
+{
+	Base::SetName(_name);
+}
 
 unsigned int Employee::GetSalary()
 {

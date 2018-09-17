@@ -10,8 +10,11 @@ public:
 	Employee();
 	~Employee();
 
+	Employee(Employee& _other);
+	Employee& operator=(Employee& _other);
+	
 	char* GetName();
-	void SetName();
+	void SetName(char* _name);
 	unsigned int GetSalary();
 	void SetSalary(unsigned int salary);
 	char* GetDepartment();
