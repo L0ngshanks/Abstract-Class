@@ -14,6 +14,7 @@
 #include <tchar.h>
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 using namespace System;

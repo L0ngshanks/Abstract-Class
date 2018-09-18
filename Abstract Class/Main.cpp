@@ -1,12 +1,5 @@
 #include "Main.h"
-#include "Base.h"
-#include "Employee.h"
-#include "Student.h"
 
-#include "stdafx.h"
-#include "Validation.h"
-
-#include <vector>
 
 using namespace std;
 
@@ -14,17 +7,103 @@ Main::Main()
 {
 }
 
+
+int main(int argc, char** argv)
+{
+	Validation valid;
+
+	bool loopBool = true;
+	while (loopBool)
+	{
+		Console::Lock(true);
+		system("cls");
+		cout << "Welcome to the Abstract Base Class Lab" << endl;
+		cout << "--------------------------------------" << endl;
+		cout << "1) Add a record" << endl;
+		cout << "2) Manage records" << endl;
+		cout << "--------------------------------------" << endl;
+		cout << "Press ESC to Exit" << endl;
+		cout << "--------------------------------------" << endl;
+		int selection = valid.IntValidation("Selection: ");
+		Console::Lock(false);
+		Sleep(20);
+
+		switch (selection)
+		{
+		case 1:
+			break;
+		case 2:
+			break;
+		default:
+			break;
+		}
+		if (GetAsyncKeyState(VK_ESCAPE))
+			loopBool = false;
+	}
+}
 char* Main::CaptureName()
 {
 	char buffer[32];
 	system("cls");
-	cout << "Employee Name: ";
+	if (addRec_selection == 1)
+	{
+		cout << "Employee Name: ";
+	}
+	else if (addRec_selection == 2)
+	{
+		cout << "Student Name: ";
+	}
 	cin >> buffer;
 
 	cin.clear();
 	cin.ignore(INT_MAX, '\n');
 
 	return buffer;
+}
+
+char* Main::CaptureDeptDegree()
+{
+	char buffer[32];
+	system("cls");
+	if (addRec_selection == 1)
+	{
+		cout << "Employee Department: ";
+	}
+	else if (addRec_selection == 2)
+	{
+		cout << "Student Degree Program: ";
+	}
+	cin >> buffer;
+
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+
+	return buffer;
+}
+
+unsigned int Main::EmployeeSalary()
+{
+	Validation valid;
+	
+	int salary = valid.UIntValidation("Employee's Salary: ");
+	return salary;
+}
+
+unsigned int Main::StudentGPA()
+{
+	Validation valid;
+
+	int gpa = valid.UIntValidation("Student's GPA: ");
+	return gpa;
+}
+
+unsigned int Main::StudentLikabilityRating()
+{
+	Validation valid;
+
+	int likabilityRating = valid.UIntValidation("Employee's Salary: ");
+	return likabilityRating;
+
 }
 
 void Main::AddRecord()
@@ -61,42 +140,6 @@ void Main::AddRecord()
 
 void Main::ManageRecords()
 {
-}
-
-int main(int argc, char** argv)
-{
-	Validation valid;
-	vector<Base*> records;
-
-	bool loopBool = true;
-	while (loopBool)
-	{
-		Console::Lock(true);
-		system("cls");
-		cout << "Welcome to the Abstract Base Class Lab" << endl;
-		cout << "--------------------------------------" << endl;
-		cout << "1) Add a record" << endl;
-		cout << "2) Manage records" << endl;
-		cout << "--------------------------------------" << endl;
-		cout << "Press ESC to Exit" << endl;
-		cout << "--------------------------------------" << endl;
-		int selection = valid.IntValidation("Selection: ");
-		Console::Lock(false);
-		Sleep(20);
-
-		switch (selection)
-		{
-		case 1:
-			break;
-		case 2:
-			break;
-		default:
-			break;
-		}
-		if (GetAsyncKeyState(VK_ESCAPE))
-			loopBool = false;
-
-	}
 }
 
 Main::~Main()
