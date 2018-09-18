@@ -8,6 +8,14 @@ Student::Student()
 {
 }
 
+Student::Student(char* _name, char* _degree, unsigned int _gpa, unsigned int _likeability)
+{
+	SetName(_name);
+	SetDegreeProgram(_degree);
+	SetGPA(_gpa);
+	SetLikabilityRating(_likeability);
+}
+
 
 Student::~Student()
 {
@@ -20,6 +28,8 @@ Student::Student(Student& _other)
 	{
 		SetName(_other.GetName());
 		SetDegreeProgram(_other.GetDegreeProgram());
+		f_GPA = _other.GetGPA();
+		f_LikabilityRating = _other.GetLikabilityRating();
 	}
 }
 
@@ -29,6 +39,8 @@ Student& Student::operator=(Student& _other)
 	{
 		SetName(_other.GetName());
 		SetDegreeProgram(_other.GetDegreeProgram());
+		f_GPA = _other.GetGPA();
+		f_LikabilityRating = _other.GetLikabilityRating();
 	}
 
 	return *this;

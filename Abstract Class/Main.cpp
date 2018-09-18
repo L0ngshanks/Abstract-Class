@@ -16,15 +16,15 @@ Main::Main()
 
 char* Main::CaptureName()
 {
-	char* name;
+	char buffer[32];
 	system("cls");
 	cout << "Employee Name: ";
-	cin >> name;
+	cin >> buffer;
 
 	cin.clear();
 	cin.ignore(INT_MAX, '\n');
 
-	return name;
+	return buffer;
 }
 
 void Main::AddRecord()

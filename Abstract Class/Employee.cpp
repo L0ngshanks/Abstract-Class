@@ -8,6 +8,13 @@ Employee::Employee()
 {
 }
 
+Employee::Employee(char* _name, char* _department, unsigned int _salary)
+{
+	SetName(_name);
+	SetDepartment(_department);
+	SetSalary(_salary);
+}
+
 Employee::~Employee()
 {
 	delete f_Department;
@@ -19,6 +26,7 @@ Employee::Employee(Employee& _other)
 	{
 		SetName(_other.GetName());
 		SetDepartment(_other.GetDepartment());
+		f_Salary = _other.GetSalary();
 	}
 }
 
@@ -28,6 +36,7 @@ Employee& Employee::operator=(Employee& _other)
 	{
 		SetName(_other.GetName());
 		SetDepartment(_other.GetDepartment());
+		f_Salary = _other.GetSalary();
 	}
 
 	return *this;

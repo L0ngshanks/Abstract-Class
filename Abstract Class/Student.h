@@ -9,6 +9,7 @@ private:
 	char* f_DegreeProgram;
 public:
 	Student();
+	Student(char* _name, char* degree, unsigned int gpa, unsigned int likeability);
 	~Student();
 
 	Student(Student& _other);

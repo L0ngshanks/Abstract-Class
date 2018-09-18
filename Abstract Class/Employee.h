@@ -8,6 +8,7 @@ private:
 	char* f_Department;
 public:
 	Employee();
+	Employee(char* _name, char* _department, unsigned int _salary);
 	~Employee();
 
 	Employee(Employee& _other);
