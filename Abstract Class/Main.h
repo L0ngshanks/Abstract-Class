@@ -9,7 +9,6 @@
 class Main
 {
 	int addRec_selection = 0;
-	vector<Base*> records;
 
 public:
 	Main();

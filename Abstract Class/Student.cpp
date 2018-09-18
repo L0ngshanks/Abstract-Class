@@ -8,7 +8,7 @@ Student::Student()
 {
 }
 
-Student::Student(char* _name, char* _degree, unsigned int _gpa, unsigned int _likeability)
+Student::Student(char* _name, char* _degree, float _gpa, unsigned int _likeability)
 {
 	SetName(_name);
 	SetDegreeProgram(_degree);
@@ -55,11 +55,11 @@ void Student::SetName(char* _name)
 	Base::SetName(_name);
 }
 
-unsigned int Student::GetGPA()
+float Student::GetGPA()
 {
 	return f_GPA;
 }
-void Student::SetGPA(unsigned int gpa)
+void Student::SetGPA(float gpa)
 {
 	f_GPA = gpa;
 }

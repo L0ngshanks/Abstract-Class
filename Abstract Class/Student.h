@@ -4,7 +4,7 @@ class Student :
 	public Base
 {
 private:
-	unsigned int f_GPA;
+	float f_GPA;
 	unsigned int f_LikabilityRating;
 	char* f_DegreeProgram;
 public:
@@ -17,8 +17,8 @@ public:
 
 	char* GetName();
 	void SetName(char* _name);
-	unsigned int GetGPA();
-	void SetGPA(unsigned int gpa);
+	float GetGPA();
+	void SetGPA(float gpa);
 	unsigned int GetLikabilityRating();
 	void SetLikabilityRating(unsigned int likabilityRating);
 	char* GetDegreeProgram();

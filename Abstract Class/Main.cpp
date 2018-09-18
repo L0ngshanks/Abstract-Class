@@ -7,38 +7,36 @@ Main::Main()
 {
 }
 
+vector<Base*> _records;
 
 int main(int argc, char** argv)
 {
 	Validation valid;
+	Main m;
 
-	bool loopBool = true;
-	while (loopBool)
+	int selection = 0;
+	while (selection != 9)
 	{
-		Console::Lock(true);
-		system("cls");
 		cout << "Welcome to the Abstract Base Class Lab" << endl;
 		cout << "--------------------------------------" << endl;
 		cout << "1) Add a record" << endl;
 		cout << "2) Manage records" << endl;
 		cout << "--------------------------------------" << endl;
-		cout << "Press ESC to Exit" << endl;
+		cout << "9) Exit" << endl;
 		cout << "--------------------------------------" << endl;
 		int selection = valid.IntValidation("Selection: ");
-		Console::Lock(false);
-		Sleep(20);
 
 		switch (selection)
 		{
 		case 1:
+			system("cls");
+			m.AddRecord();
 			break;
 		case 2:
 			break;
 		default:
 			break;
 		}
-		if (GetAsyncKeyState(VK_ESCAPE))
-			loopBool = false;
 	}
 }
 char* Main::CaptureName()
@@ -53,10 +51,9 @@ char* Main::CaptureName()
 	{
 		cout << "Student Name: ";
 	}
-	cin >> buffer;
+	cin.getline(buffer, 32, '\n');
 
 	cin.clear();
-	cin.ignore(INT_MAX, '\n');
 
 	return buffer;
 }
@@ -73,10 +70,9 @@ char* Main::CaptureDeptDegree()
 	{
 		cout << "Student Degree Program: ";
 	}
-	cin >> buffer;
+	cin.getline(buffer,32,'\n');
 
 	cin.clear();
-	cin.ignore(INT_MAX, '\n');
 
 	return buffer;
 }
@@ -85,7 +81,7 @@ unsigned int Main::EmployeeSalary()
 {
 	Validation valid;
 	
-	int salary = valid.UIntValidation("Employee's Salary: ");
+	float salary = valid.FloatValidation("Employee's Salary: ");
 	return salary;
 }
 
@@ -93,7 +89,7 @@ unsigned int Main::StudentGPA()
 {
 	Validation valid;
 
-	int gpa = valid.UIntValidation("Student's GPA: ");
+	float gpa = valid.FloatValidation("Student's GPA: ");
 	return gpa;
 }
 
@@ -101,7 +97,7 @@ unsigned int Main::StudentLikabilityRating()
 {
 	Validation valid;
 
-	int likabilityRating = valid.UIntValidation("Employee's Salary: ");
+	int likabilityRating = valid.UIntValidation("Likeability Rating: ");
 	return likabilityRating;
 
 }
@@ -109,11 +105,19 @@ unsigned int Main::StudentLikabilityRating()
 void Main::AddRecord()
 {
 	Validation valid;
+	
+	char* name = nullptr;
 
-	int addRec_selection = 0;
+	char* department = nullptr;
+	unsigned int salary = 0;
+
+	char* degreeProgram = nullptr;
+	unsigned int gpa = 0;
+	unsigned int likeability = 0;
+
+	addRec_selection = 0;
 	while (addRec_selection != 9)
 	{
-		Console::Lock(true);
 		system("cls");
 		cout << "Add Records" << endl;
 		cout << "-------------------------" << endl;
@@ -127,10 +131,20 @@ void Main::AddRecord()
 		switch (addRec_selection)
 		{
 		case 1:
+			name = this->CaptureName();
+			department = this->CaptureDeptDegree();
+			salary = this->EmployeeSalary();
+			_records.push_back(new Employee(name, department, salary));
 			break;
 		case 2:
+			name = this->CaptureName();
+			degreeProgram = this->CaptureDeptDegree();
+			gpa = this->StudentGPA();
+			likeability = this->StudentLikabilityRating();
+			_records.push_back(new Student(name, degreeProgram, gpa, likeability));
 			break;
 		case 9:
+			system("cls");
 			break;
 		default:
 			break;

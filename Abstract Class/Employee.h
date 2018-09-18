@@ -8,7 +8,7 @@ private:
 	char* f_Department;
 public:
 	Employee();
-	Employee(char* _name, char* _department, unsigned int _salary);
+	Employee(char* _name, char* _department, float _salary);
 	~Employee();
 
 	Employee(Employee& _other);
@@ -16,8 +16,8 @@ public:
 	
 	char* GetName();
 	void SetName(char* _name);
-	unsigned int GetSalary();
-	void SetSalary(unsigned int salary);
+	float GetSalary();
+	void SetSalary(float salary);
 	char* GetDepartment();
 	void SetDepartment(char* department);
 };

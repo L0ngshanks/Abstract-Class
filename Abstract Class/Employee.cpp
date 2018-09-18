@@ -8,7 +8,7 @@ Employee::Employee()
 {
 }
 
-Employee::Employee(char* _name, char* _department, unsigned int _salary)
+Employee::Employee(char* _name, char* _department, float _salary)
 {
 	SetName(_name);
 	SetDepartment(_department);
@@ -51,11 +51,11 @@ void Employee::SetName(char* _name)
 	Base::SetName(_name);
 }
 
-unsigned int Employee::GetSalary()
+float Employee::GetSalary()
 {
 	return f_Salary;
 }
-void Employee::SetSalary(unsigned int salary)
+void Employee::SetSalary(float salary)
 {
 	f_Salary = salary;
 }
