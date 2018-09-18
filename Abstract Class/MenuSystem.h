@@ -11,6 +11,7 @@
 class MenuSystem
 {
 	vector<Base*> _records;
+	Base* base;
 	int addRec_selection = 0;
 
 public:

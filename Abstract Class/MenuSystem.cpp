@@ -33,6 +33,7 @@ void MenuSystem::MainMenu()
 			AddRecord();
 			break;
 		case 2:
+			ManageRecords();
 			break;
 		case 9:
 			return;
@@ -64,7 +65,7 @@ void MenuSystem::AddRecord()
 		cout << "1) Add an Employee Record" << endl;
 		cout << "2) Add a Student Record" << endl;
 		cout << "-------------------------" << endl;
-		cout << "9) Exit" << endl;
+		cout << "9) Return to Main Menu" << endl;
 		cout << "-------------------------" << endl;
 		addRec_selection = valid.IntValidation("Selection: ");
 
@@ -75,7 +76,8 @@ void MenuSystem::AddRecord()
 			name = dc.CaptureName(addRec_selection);
 			department = dc.CaptureDeptDegree(addRec_selection);
 			salary = dc.EmployeeSalary();
-			_records.push_back(new Employee(name, department, salary));
+			base = new Employee(name, department, salary);
+			_records.push_back(base);
 			break;
 		case 2:
 			system("cls");
@@ -83,7 +85,8 @@ void MenuSystem::AddRecord()
 			degreeProgram = dc.CaptureDeptDegree(addRec_selection);
 			gpa = dc.StudentGPA();
 			likeability = dc.StudentLikabilityRating();
-			_records.push_back(new Student(name, degreeProgram, gpa, likeability));
+			base = new Student(name, degreeProgram, gpa, likeability);
+			_records.push_back(base);
 			break;
 		case 9:
 			system("cls");
@@ -96,6 +99,8 @@ void MenuSystem::AddRecord()
 
 void MenuSystem::ManageRecords()
 {
+
+	cout << "_records.Size: " << _records.size() << endl;
 	//for (int i = 0; i < _records.size(); ++i)
 	//{
 	//	if (Employee* e = dynamic_cast<Employee*>(_records))
