@@ -46,7 +46,7 @@ unsigned int Validation::UIntValidation(const char msg[32])
 	return number;
 }
 
-float FloatValidation(const char msg[32])
+float Validation::FloatValidation(const char msg[32])
 {
 	float number;
 	cout << msg;

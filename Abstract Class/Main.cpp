@@ -1,13 +1,17 @@
 #include "Main.h"
+#include "Base.h"
+#include "Employee.h"
+#include "Student.h"
+#include "Validation.h"
+
+#include "stdafx.h"
 
 
 using namespace std;
 
 Main::Main()
 {
-}
-
-vector<Base*> _records;
+};
 
 int main(int argc, char** argv)
 {
@@ -34,14 +38,18 @@ int main(int argc, char** argv)
 			break;
 		case 2:
 			break;
+		case 9:
+			break;
 		default:
 			break;
-		}
-	}
-}
+		};
+	};
+};
+
 char* Main::CaptureName()
 {
 	char buffer[32];
+	char* name = nullptr;
 	system("cls");
 	if (addRec_selection == 1)
 	{
@@ -52,15 +60,20 @@ char* Main::CaptureName()
 		cout << "Student Name: ";
 	}
 	cin.getline(buffer, 32, '\n');
-
 	cin.clear();
 
-	return buffer;
+	int length = strlen(buffer) + 1;
+	name = new char[length];
+
+	strcpy_s(name, length, buffer);
+
+	return name;
 }
 
 char* Main::CaptureDeptDegree()
 {
 	char buffer[32];
+	char* deptDegree = nullptr;
 	system("cls");
 	if (addRec_selection == 1)
 	{
@@ -71,13 +84,16 @@ char* Main::CaptureDeptDegree()
 		cout << "Student Degree Program: ";
 	}
 	cin.getline(buffer,32,'\n');
-
 	cin.clear();
 
-	return buffer;
+	int length = strlen(buffer) + 1;
+	deptDegree = new char[length];
+	strcpy_s(deptDegree, length, buffer);
+
+	return deptDegree;
 }
 
-unsigned int Main::EmployeeSalary()
+float Main::EmployeeSalary()
 {
 	Validation valid;
 	
@@ -85,7 +101,7 @@ unsigned int Main::EmployeeSalary()
 	return salary;
 }
 
-unsigned int Main::StudentGPA()
+float Main::StudentGPA()
 {
 	Validation valid;
 
@@ -109,10 +125,10 @@ void Main::AddRecord()
 	char* name = nullptr;
 
 	char* department = nullptr;
-	unsigned int salary = 0;
+	float salary = 0;
 
 	char* degreeProgram = nullptr;
-	unsigned int gpa = 0;
+	float gpa = 0;
 	unsigned int likeability = 0;
 
 	addRec_selection = 0;
@@ -154,6 +170,10 @@ void Main::AddRecord()
 
 void Main::ManageRecords()
 {
+	for (int i = 0; i < _records.size(); ++i)
+	{
+		if(Employee* e = dynamic_cast<Employee*>(_records))
+	}
 }
 
 Main::~Main()

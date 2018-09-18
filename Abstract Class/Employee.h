@@ -4,7 +4,7 @@ class Employee :
 	public Base
 {
 private:
-	unsigned int f_Salary;
+	float f_Salary;
 	char* f_Department;
 public:
 	Employee();
