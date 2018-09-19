@@ -101,8 +101,8 @@ void MenuSystem::ManageRecords()
 {
 
 	cout << "_records.Size: " << _records.size() << endl;
-	//for (int i = 0; i < _records.size(); ++i)
-	//{
-	//	if (Employee* e = dynamic_cast<Employee*>(_records))
-	//}
+	for (int i = 0; i < _records.size(); ++i)
+	{
+		if (Employee* e = dynamic_cast<Employee*>(_records[i]))
+	}
 }
