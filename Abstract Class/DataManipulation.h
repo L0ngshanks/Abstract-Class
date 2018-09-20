@@ -8,17 +8,6 @@
 
 class DataManipulation
 {
-	vector<Base*> _records;
-	MenuSystem m;
-
-	char* name = nullptr;
-
-	char* department = nullptr;
-	float salary = 0;
-
-	char* degreeProgram = nullptr;
-	float gpa = 0;
-	unsigned int likeability = 0;
 
 public:
 	DataManipulation();
@@ -30,9 +19,6 @@ public:
 	float StudentGPA();
 	unsigned int StudentLikabilityRating();
 
-	void EmployeeCollection();
-	void StudentCollection();
-
-	void Display();
+	void PrintRecords();
 };
 

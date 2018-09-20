@@ -82,11 +82,13 @@ void Student::SetDegreeProgram(char* _degreeProgram)
 	int length = strlen(_degreeProgram) + 1;
 	f_DegreeProgram = new char[length];
 
-	strcpy_s(f_name, length, _degreeProgram);
+	strcpy_s(f_DegreeProgram, length, _degreeProgram);
 }
 
 void Student::Display()
 {
-	cout << "Degree Program: " << GetDegreeProgram() << endl;
+	Base::Display();
+	cout << " Degree Program: " << GetDegreeProgram() << endl;
 	cout << "GPA: " << GetGPA() << " Likability Rating: " << GetLikabilityRating() << endl;
+	cout << "------------------------------------------------------" << endl;
 }

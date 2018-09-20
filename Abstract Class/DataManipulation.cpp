@@ -79,29 +79,7 @@ unsigned int DataManipulation::StudentLikabilityRating()
 	return likabilityRating;
 }
 
-void DataManipulation::EmployeeCollection()
+
+void DataManipulation::PrintRecords()
 {
-	name = CaptureName(m.GetSelection());
-	department = CaptureDeptDegree(m.GetSelection);
-	salary = EmployeeSalary();
-
-	_records.push_back(new Employee(name, department, salary));
-}
-
-void DataManipulation::StudentCollection()
-{
-	name = CaptureName(m.GetSelection());
-	degreeProgram = CaptureDeptDegree(m.GetSelection());
-	gpa = StudentGPA();
-	likeability = StudentLikabilityRating();
-
-	_records.push_back(new Student(name, degreeProgram, gpa, likeability));
-}
-
-void DataManipulation::Display()
-{
-	for (int i = 0; i < _records.size; ++i)
-	{
-		_records[i]->Display();
-	}
 }

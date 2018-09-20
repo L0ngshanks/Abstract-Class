@@ -75,5 +75,7 @@ void Employee::SetDepartment(char* _department)
 
 void Employee::Display()
 {
-	cout << "Department: " << GetDepartment() << " Salary: " << GetSalary() << endl;
+	Base::Display();
+	cout << " Department: " << GetDepartment() << " Salary: " << GetSalary() << endl;
+	cout << "------------------------------------------------------" << endl;
 }

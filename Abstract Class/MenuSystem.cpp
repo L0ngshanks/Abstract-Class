@@ -2,6 +2,7 @@
 
 
 
+
 MenuSystem::MenuSystem()
 {
 }
@@ -9,6 +10,10 @@ MenuSystem::MenuSystem()
 
 MenuSystem::~MenuSystem()
 {
+	for (unsigned int i = 0; i < _records.size(); ++i)
+	{
+		delete _records[i];
+	}
 }
 void MenuSystem::MainMenu()
 {
@@ -63,12 +68,20 @@ void MenuSystem::AddRecord()
 		{
 		case 1:
 			system("cls");
+			name = dc.CaptureName(GetSelection());
+			department = dc.CaptureDeptDegree(GetSelection());
+			salary = dc.EmployeeSalary();
 
-			dc.EmployeeCollection();
+			_records.push_back(new Employee(name, department, salary));
 			break;
 		case 2:
 			system("cls");
-			dc.StudentCollection();
+			name = dc.CaptureName(GetSelection());
+			degreeProgram = dc.CaptureDeptDegree(GetSelection());
+			gpa = dc.StudentGPA();
+			likeability = dc.StudentLikabilityRating();
+
+			_records.push_back(new Student(name, degreeProgram, gpa, likeability));
 			break;
 		case 9:
 			system("cls");
@@ -81,7 +94,10 @@ void MenuSystem::AddRecord()
 
 void MenuSystem::ManageRecords()
 {
-	dc->Display();
+	for (unsigned int i = 0; i < _records.size(); ++i)
+	{
+		_records[i]->Display();
+	}
 }
 
 int MenuSystem::GetSelection()

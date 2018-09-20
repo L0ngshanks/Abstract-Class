@@ -40,7 +40,6 @@ void Base::SetName(char* _name)
 	f_name = new char[length];
 
 	strcpy_s(f_name, length, _name);
-
 }
 
 void Base::Display()
