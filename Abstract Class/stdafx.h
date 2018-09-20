@@ -16,5 +16,9 @@
 #include <iostream>
 #include <vector>
 
+#include "MenuSystem.h"
+#include "DataManipulation.h"
+
+
 using namespace std;
 using namespace System;

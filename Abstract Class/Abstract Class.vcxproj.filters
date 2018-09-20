@@ -36,10 +36,10 @@
     <ClInclude Include="Validation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataCollection.h">
+    <ClInclude Include="MenuSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuSystem.h">
+    <ClInclude Include="DataManipulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -65,10 +65,10 @@
     <ClCompile Include="Validation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataCollection.cpp">
+    <ClCompile Include="MenuSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuSystem.cpp">
+    <ClCompile Include="DataManipulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

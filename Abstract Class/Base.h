@@ -1,4 +1,10 @@
 #pragma once
+
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 class Base
 {
 protected:
@@ -12,5 +18,7 @@ public:
 
 	virtual char* GetName() = 0;
 	virtual void SetName(char* name) = 0;
+
+	virtual void Display() = 0;
 };
 

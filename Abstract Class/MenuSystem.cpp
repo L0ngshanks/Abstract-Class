@@ -46,16 +46,6 @@ void MenuSystem::MainMenu()
 void MenuSystem::AddRecord()
 {
 	Validation valid;
-	DataCollection dc;
-
-	char* name = nullptr;
-
-	char* department = nullptr;
-	float salary = 0;
-
-	char* degreeProgram = nullptr;
-	float gpa = 0;
-	unsigned int likeability = 0;
 
 	while (addRec_selection != 9)
 	{
@@ -73,20 +63,12 @@ void MenuSystem::AddRecord()
 		{
 		case 1:
 			system("cls");
-			name = dc.CaptureName(addRec_selection);
-			department = dc.CaptureDeptDegree(addRec_selection);
-			salary = dc.EmployeeSalary();
-			base = new Employee(name, department, salary);
-			_records.push_back(base);
+
+			dc->EmployeeCollection();
 			break;
 		case 2:
 			system("cls");
-			name = dc.CaptureName(addRec_selection);
-			degreeProgram = dc.CaptureDeptDegree(addRec_selection);
-			gpa = dc.StudentGPA();
-			likeability = dc.StudentLikabilityRating();
-			base = new Student(name, degreeProgram, gpa, likeability);
-			_records.push_back(base);
+			dc->StudentCollection();
 			break;
 		case 9:
 			system("cls");
@@ -99,10 +81,10 @@ void MenuSystem::AddRecord()
 
 void MenuSystem::ManageRecords()
 {
+	dc->Display();
+}
 
-	cout << "_records.Size: " << _records.size() << endl;
-	//for (int i = 0; i < _records.size(); ++i)
-	//{
-	//	if (Employee* e = dynamic_cast<Employee*>(_records))
-	//}
+int MenuSystem::GetSelection()
+{
+	return addRec_selection;
 }

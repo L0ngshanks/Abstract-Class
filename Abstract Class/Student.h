@@ -23,5 +23,7 @@ public:
 	void SetLikabilityRating(unsigned int likabilityRating);
 	char* GetDegreeProgram();
 	void SetDegreeProgram(char* degreeProgram);
+
+	void Display();
 };
 

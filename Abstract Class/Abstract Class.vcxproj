@@ -117,7 +117,7 @@
   <ItemGroup>
     <ClInclude Include="Base.h" />
     <ClInclude Include="Console.h" />
-    <ClInclude Include="DataCollection.h" />
+    <ClInclude Include="DataManipulation.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MenuSystem.h" />
@@ -128,7 +128,7 @@
   <ItemGroup>
     <ClCompile Include="Base.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="DataCollection.cpp" />
+    <ClCompile Include="DataManipulation.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuSystem.cpp" />

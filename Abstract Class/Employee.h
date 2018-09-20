@@ -20,5 +20,7 @@ public:
 	void SetSalary(float salary);
 	char* GetDepartment();
 	void SetDepartment(char* department);
+
+	void Display();
 };
 

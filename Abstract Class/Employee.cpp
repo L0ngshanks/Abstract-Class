@@ -72,3 +72,8 @@ void Employee::SetDepartment(char* _department)
 
 	strcpy_s(f_Department, length, _department);
 }
+
+void Employee::Display()
+{
+	cout << "Department: " << GetDepartment() << " Salary: " << GetSalary() << endl;
+}

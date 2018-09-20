@@ -17,6 +17,4 @@ int main(int argc, char** argv)
 
 Main::~Main()
 {
-	//delete records;
-	//records = NULL;
 }

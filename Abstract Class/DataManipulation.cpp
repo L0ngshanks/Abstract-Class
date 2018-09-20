@@ -1,18 +1,17 @@
-#include "DataCollection.h"
+#include "DataManipulation.h"
 
-DataCollection::DataCollection()
+DataManipulation::DataManipulation()
 {
+
 }
 
 
-DataCollection::~DataCollection()
+DataManipulation::~DataManipulation()
 {
 }
 
-char* DataCollection::CaptureName(int _selection)
+char* DataManipulation::CaptureName(int _selection)
 {
-	MenuSystem m;
-
 	char buffer[32];
 	char* name = nullptr;
 	if (_selection == 1)
@@ -34,10 +33,8 @@ char* DataCollection::CaptureName(int _selection)
 	return name;
 }
 
-char* DataCollection::CaptureDeptDegree(int _selection)
+char* DataManipulation::CaptureDeptDegree(int _selection)
 {
-	MenuSystem m;
-
 	char buffer[32];
 	char* deptDegree = nullptr;
 	if (_selection == 1)
@@ -58,7 +55,7 @@ char* DataCollection::CaptureDeptDegree(int _selection)
 	return deptDegree;
 }
 
-float DataCollection::EmployeeSalary()
+float DataManipulation::EmployeeSalary()
 {
 	Validation valid;
 
@@ -66,7 +63,7 @@ float DataCollection::EmployeeSalary()
 	return salary;
 }
 
-float DataCollection::StudentGPA()
+float DataManipulation::StudentGPA()
 {
 	Validation valid;
 
@@ -74,11 +71,37 @@ float DataCollection::StudentGPA()
 	return gpa;
 }
 
-unsigned int DataCollection::StudentLikabilityRating()
+unsigned int DataManipulation::StudentLikabilityRating()
 {
 	Validation valid;
 
 	int likabilityRating = valid.UIntValidation("Likeability Rating: ");
 	return likabilityRating;
+}
 
+void DataManipulation::EmployeeCollection()
+{
+	name = CaptureName(m->GetSelection());
+	department = CaptureDeptDegree(m->GetSelection);
+	salary = EmployeeSalary();
+
+	_records.push_back(new Employee(name, department, salary));
+}
+
+void DataManipulation::StudentCollection()
+{
+	name = CaptureName(m->GetSelection());
+	degreeProgram = CaptureDeptDegree(m->GetSelection());
+	gpa = StudentGPA();
+	likeability = StudentLikabilityRating();
+
+	_records.push_back(new Student(name, degreeProgram, gpa, likeability));
+}
+
+void DataManipulation::Display()
+{
+	for (int i = 0; i < _records.size; ++i)
+	{
+		_records[i]->Display();
+	}
 }
