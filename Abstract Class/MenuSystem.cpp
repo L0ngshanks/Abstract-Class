@@ -73,6 +73,8 @@ void MenuSystem::AddRecord()
 			salary = dc.EmployeeSalary();
 
 			_records.push_back(new Employee(name, department, salary));
+			delete name;
+			delete department;
 			break;
 		case 2:
 			system("cls");
@@ -82,6 +84,8 @@ void MenuSystem::AddRecord()
 			likeability = dc.StudentLikabilityRating();
 
 			_records.push_back(new Student(name, degreeProgram, gpa, likeability));
+			delete name;
+			delete degreeProgram;
 			break;
 		case 9:
 			system("cls");
