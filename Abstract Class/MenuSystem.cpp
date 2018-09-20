@@ -145,49 +145,61 @@ void MenuSystem::CopyRecords()
 	bool copySuccess = false;
 	while (!copySuccess)
 	{
-		cout << "Records List by Index" << endl;
-		for (unsigned int i = 0; i < _records.size(); ++i)
+		if (_records.size() != 0)
 		{
-			cout << "Index: " << i << " ";
-			_records[i]->Display();
-		}
-		cout << endl;
-		int copyFrom = valid.IntValidation("Copy From Index: ");
-		int copyTo = valid.IntValidation("Copy To Index: ");
-		cout << endl;
+			cout << "Records List by Index" << endl;
+			for (unsigned int i = 0; i < _records.size(); ++i)
+			{
+				cout << "Index: " << i << " ";
+				_records[i]->Display();
+			}
 
-		Employee* eTo = dynamic_cast<Employee*>(_records[copyTo]);
-		Employee* eFrom = dynamic_cast<Employee*>(_records[copyFrom]);
-
-		Student* sTo = dynamic_cast<Student*>(_records[copyTo]);
-		Student* sFrom = dynamic_cast<Student*>(_records[copyFrom]);
-
-		if (eTo && eFrom)
-		{
-			*eTo = *eFrom;
-			copySuccess = true;
-		}
-		else if (sTo && sFrom)
-		{
-			sTo = sFrom;
-			copySuccess = true;
-		}
-		else
-		{
-			cout << "Copy Failed - Records where not of the same type." << endl;
 			cout << endl;
-			copySuccess = false;
+
+			int copyFrom = valid.IntValidation("Copy From Index: ");
+			int copyTo = valid.IntValidation("Copy To Index: ");
+			cout << endl;
+
+			Employee* eTo = dynamic_cast<Employee*>(_records[copyTo]);
+			Employee* eFrom = dynamic_cast<Employee*>(_records[copyFrom]);
+
+			Student* sTo = dynamic_cast<Student*>(_records[copyTo]);
+			Student* sFrom = dynamic_cast<Student*>(_records[copyFrom]);
+
+			if (eTo && eFrom)
+			{
+				*eTo = *eFrom;
+				copySuccess = true;
+			}
+			else if (sTo && sFrom)
+			{
+				sTo = sFrom;
+				copySuccess = true;
+			}
+			else
+			{
+				cout << "Copy Failed - Records where not of the same type." << endl;
+				cout << endl;
+				copySuccess = false;
+			}
 		}
 
+		if (copySuccess)
+		{
+			cout << endl;
+			cout << "New Record List" << endl;
+			cout << "------------------------------------------------------" << endl;
+			for (unsigned int i = 0; i < _records.size(); ++i)
+			{
+				_records[i]->Display();
+			}
+		}
+		Console::Lock(true);
+		cout << "Press ESC to return Menu" << endl;
+		Console::Lock(false);
+		Sleep(20);
+		if (GetAsyncKeyState(VK_ESCAPE))
+			return;
 	}
-
-	cout << endl;
-	cout << "New Record List" << endl;
-	cout << "------------------------------------------------------" << endl;
-	for (unsigned int i = 0; i < _records.size(); ++i)
-	{
-		_records[i]->Display();
-	}
-
 	system("pause");
 }
