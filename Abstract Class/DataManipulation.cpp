@@ -78,8 +78,3 @@ unsigned int DataManipulation::StudentLikabilityRating()
 	int likabilityRating = valid.UIntValidation("Likeability Rating: ");
 	return likabilityRating;
 }
-
-
-void DataManipulation::PrintRecords()
-{
-}

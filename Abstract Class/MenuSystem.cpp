@@ -50,7 +50,6 @@ void MenuSystem::MainMenu()
 }
 void MenuSystem::AddRecord()
 {
-	Validation valid;
 
 	while (addRec_selection != 9)
 	{
@@ -94,13 +93,58 @@ void MenuSystem::AddRecord()
 
 void MenuSystem::ManageRecords()
 {
-	for (unsigned int i = 0; i < _records.size(); ++i)
+	int manageSelect = 0;
+	while (manageSelect != 9)
 	{
-		_records[i]->Display();
+		cout << "Manage Record" << endl;
+		cout << "-------------------------" << endl;
+		cout << "1) Print All Records" << endl;
+		cout << "2) Copy Records" << endl;
+		cout << "-------------------------" << endl;
+		cout << "9) Return to Main Menu" << endl;
+		manageSelect = valid.IntValidation("Selection: ");
+
+		switch (manageSelect)
+		{
+		case 1:
+			system("cls");
+			DisplayRecords();
+			break;
+		case 2:
+			system("cls");
+			CopyRecords();
+			break;
+		case 9:
+			system("cls");
+			break;
+		default:
+			break;
+		}
 	}
+
 }
 
 int MenuSystem::GetSelection()
 {
 	return addRec_selection;
+}
+
+void MenuSystem::DisplayRecords()
+{
+	for (unsigned int i = 0; i < _records.size(); ++i)
+	{
+		_records[i]->Display();
+	}
+	system("pause");
+}
+
+void MenuSystem::CopyRecords()
+{
+	
+	for (unsigned int i = 0; i < _records.size(); ++i)
+	{
+		cout << "Index: " << i << " ";
+		_records[i]->Display();
+	}
+	system("pause");
 }

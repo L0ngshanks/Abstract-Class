@@ -10,6 +10,8 @@ class MenuSystem
 {
 	vector<Base*> _records;
 	DataManipulation dc;
+	Validation valid;
+
 
 	char* name = nullptr;
 
@@ -32,6 +34,7 @@ public:
 	void ManageRecords();
 
 	int GetSelection();
-
+	void DisplayRecords();
+	void CopyRecords();
 };
 
