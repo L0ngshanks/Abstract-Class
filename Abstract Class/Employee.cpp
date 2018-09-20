@@ -34,7 +34,7 @@ Employee& Employee::operator=(Employee& _other)
 {
 	if (this != &_other)
 	{
-		SetName(_other.GetName());
+		Base::operator=(_other);
 		SetDepartment(_other.GetDepartment());
 		f_Salary = _other.GetSalary();
 	}

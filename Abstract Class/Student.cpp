@@ -37,7 +37,7 @@ Student& Student::operator=(Student& _other)
 {
 	if (this != &_other)
 	{
-		SetName(_other.GetName());
+		Base::operator=(_other);
 		SetDegreeProgram(_other.GetDegreeProgram());
 		f_GPA = _other.GetGPA();
 		f_LikabilityRating = _other.GetLikabilityRating();
