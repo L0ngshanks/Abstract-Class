@@ -9,7 +9,7 @@
 class DataManipulation
 {
 	vector<Base*> _records;
-	MenuSystem* m;
+	MenuSystem m;
 
 	char* name = nullptr;
 

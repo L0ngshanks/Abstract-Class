@@ -81,8 +81,8 @@ unsigned int DataManipulation::StudentLikabilityRating()
 
 void DataManipulation::EmployeeCollection()
 {
-	name = CaptureName(m->GetSelection());
-	department = CaptureDeptDegree(m->GetSelection);
+	name = CaptureName(m.GetSelection());
+	department = CaptureDeptDegree(m.GetSelection);
 	salary = EmployeeSalary();
 
 	_records.push_back(new Employee(name, department, salary));
@@ -90,8 +90,8 @@ void DataManipulation::EmployeeCollection()
 
 void DataManipulation::StudentCollection()
 {
-	name = CaptureName(m->GetSelection());
-	degreeProgram = CaptureDeptDegree(m->GetSelection());
+	name = CaptureName(m.GetSelection());
+	degreeProgram = CaptureDeptDegree(m.GetSelection());
 	gpa = StudentGPA();
 	likeability = StudentLikabilityRating();
 

@@ -64,11 +64,11 @@ void MenuSystem::AddRecord()
 		case 1:
 			system("cls");
 
-			dc->EmployeeCollection();
+			dc.EmployeeCollection();
 			break;
 		case 2:
 			system("cls");
-			dc->StudentCollection();
+			dc.StudentCollection();
 			break;
 		case 9:
 			system("cls");

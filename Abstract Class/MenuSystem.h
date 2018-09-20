@@ -6,7 +6,7 @@
 
 class MenuSystem
 {
-	DataManipulation* dc;
+	DataManipulation dc;
 	int addRec_selection = 0;
 
 public:
