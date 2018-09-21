@@ -36,5 +36,6 @@ public:
 	int GetSelection();
 	void DisplayRecords();
 	void CopyRecords();
+	void SwapRecords();
 };
 

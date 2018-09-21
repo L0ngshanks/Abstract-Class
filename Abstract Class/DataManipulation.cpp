@@ -25,10 +25,8 @@ char* DataManipulation::CaptureName(int _selection)
 	cin.getline(buffer, 32, '\n');
 	cin.clear();
 
-	int length = strlen(buffer) + 1;
-	name = new char[length];
-
-	strcpy_s(name, length, buffer);
+	name = new char[32];
+	strcpy_s(name, 32, buffer);
 
 	return name;
 }
@@ -48,9 +46,8 @@ char* DataManipulation::CaptureDeptDegree(int _selection)
 	cin.getline(buffer, 32, '\n');
 	cin.clear();
 
-	int length = strlen(buffer) + 1;
-	deptDegree = new char[length];
-	strcpy_s(deptDegree, length, buffer);
+	deptDegree = new char[32];
+	strcpy_s(deptDegree, 32, buffer);
 
 	return deptDegree;
 }

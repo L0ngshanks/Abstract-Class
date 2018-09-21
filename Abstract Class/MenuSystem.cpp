@@ -106,6 +106,7 @@ void MenuSystem::ManageRecords()
 		cout << "-------------------------" << endl;
 		cout << "1) Print All Records" << endl;
 		cout << "2) Copy Records" << endl;
+		cout << "3) Swap Records" << endl;
 		cout << "-------------------------" << endl;
 		cout << "9) Return to Main Menu" << endl;
 		manageSelect = valid.IntValidation("Selection: ");
@@ -119,6 +120,10 @@ void MenuSystem::ManageRecords()
 		case 2:
 			system("cls");
 			CopyRecords();
+			break;
+		case 3:
+			system("cls");
+			SwapRecords();
 			break;
 		case 9:
 			system("cls");
@@ -177,7 +182,7 @@ void MenuSystem::CopyRecords()
 			}
 			else if (sTo && sFrom)
 			{
-				sTo = sFrom;
+				*sTo = *sFrom;
 				copySuccess = true;
 			}
 			else
@@ -198,12 +203,89 @@ void MenuSystem::CopyRecords()
 				_records[i]->Display();
 			}
 		}
-		Console::Lock(true);
-		cout << "Press ESC to return Menu" << endl;
-		Console::Lock(false);
-		Sleep(20);
-		if (GetAsyncKeyState(VK_ESCAPE))
-			return;
+		//Console::Lock(true);
+		//cout << "Press ESC to return Menu" << endl;
+		//Console::Lock(false);
+		//Sleep(20);
+		//if (GetAsyncKeyState(VK_ESCAPE))
+		//	return;
+	}
+	system("pause");
+}
+
+void MenuSystem::SwapRecords()
+{
+	vector<Base*> temp;
+	bool swapSuccess = false;
+	while (!swapSuccess)
+	{
+		if (_records.size() != 0)
+		{
+			cout << "Records List by Index" << endl;
+			for (unsigned int i = 0; i < _records.size(); ++i)
+			{
+				cout << "Index: " << i << " ";
+				_records[i]->Display();
+			}
+
+			cout << endl;
+
+			int copyFrom = valid.IntValidation("Copy From Index: ");
+			int copyTo = valid.IntValidation("Copy To Index: ");
+			cout << endl;
+
+			Employee* eTo = dynamic_cast<Employee*>(_records[copyTo]);
+			Employee* eFrom = dynamic_cast<Employee*>(_records[copyFrom]);
+
+			Student* sTo = dynamic_cast<Student*>(_records[copyTo]);
+			Student* sFrom = dynamic_cast<Student*>(_records[copyFrom]);
+
+			if (eTo && eFrom)
+			{
+				temp.push_back(new Employee(eTo->GetName(), eTo->GetDepartment(), eTo->GetSalary()));
+				Employee* eSwap = dynamic_cast<Employee*>(temp[0]);
+
+				*eTo = *eFrom;
+				*eFrom = *eSwap;
+				swapSuccess = true;
+
+				delete temp[0];
+			}
+			else if (sTo && sFrom)
+			{
+				temp.push_back(new Student(sTo->GetName(), sTo->GetDegreeProgram(), sTo->GetGPA(), sTo->GetLikabilityRating()));
+				Student* sSwap = dynamic_cast<Student*>(temp[0]);
+
+				*sTo = *sFrom;
+				*sFrom = *sSwap;
+				swapSuccess = true;
+
+				delete temp[0];
+			}
+			else
+			{
+				cout << "Swap Failed - Records where not of the same type." << endl;
+				cout << endl;
+				swapSuccess = false;
+			}
+		}
+
+		if (swapSuccess)
+		{
+			cout << endl;
+			cout << "New Record List" << endl;
+			cout << "------------------------------------------------------" << endl;
+			for (unsigned int i = 0; i < _records.size(); ++i)
+			{
+				_records[i]->Display();
+			}
+		}
+		//Console::Lock(true);
+		//cout << "Press ESC to return Menu" << endl;
+		//Console::Lock(false);
+		//Sleep(20);
+		//if (GetAsyncKeyState(VK_ESCAPE))
+		//	return;
 	}
 	system("pause");
 }
