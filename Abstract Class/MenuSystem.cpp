@@ -169,11 +169,11 @@ void MenuSystem::CopyRecords()
 			int copyTo = valid.IntValidation("Copy To Index: ");
 			cout << endl;
 
-			Employee* eTo = dynamic_cast<Employee*>(_records[copyTo]);
 			Employee* eFrom = dynamic_cast<Employee*>(_records[copyFrom]);
+			Employee* eTo = dynamic_cast<Employee*>(_records[copyTo]);
 
-			Student* sTo = dynamic_cast<Student*>(_records[copyTo]);
 			Student* sFrom = dynamic_cast<Student*>(_records[copyFrom]);
+			Student* sTo = dynamic_cast<Student*>(_records[copyTo]);
 
 			if (eTo && eFrom)
 			{
@@ -203,12 +203,6 @@ void MenuSystem::CopyRecords()
 				_records[i]->Display();
 			}
 		}
-		//Console::Lock(true);
-		//cout << "Press ESC to return Menu" << endl;
-		//Console::Lock(false);
-		//Sleep(20);
-		//if (GetAsyncKeyState(VK_ESCAPE))
-		//	return;
 	}
 	system("pause");
 }
@@ -230,15 +224,15 @@ void MenuSystem::SwapRecords()
 
 			cout << endl;
 
-			int copyFrom = valid.IntValidation("Copy From Index: ");
-			int copyTo = valid.IntValidation("Copy To Index: ");
+			int swapFrom = valid.IntValidation("Swap From Index: ");
+			int swapTo = valid.IntValidation("Swap To Index: ");
 			cout << endl;
 
-			Employee* eTo = dynamic_cast<Employee*>(_records[copyTo]);
-			Employee* eFrom = dynamic_cast<Employee*>(_records[copyFrom]);
+			Employee* eFrom = dynamic_cast<Employee*>(_records[swapFrom]);
+			Employee* eTo = dynamic_cast<Employee*>(_records[swapTo]);
 
-			Student* sTo = dynamic_cast<Student*>(_records[copyTo]);
-			Student* sFrom = dynamic_cast<Student*>(_records[copyFrom]);
+			Student* sFrom = dynamic_cast<Student*>(_records[swapFrom]);
+			Student* sTo = dynamic_cast<Student*>(_records[swapTo]);
 
 			if (eTo && eFrom)
 			{
@@ -280,12 +274,6 @@ void MenuSystem::SwapRecords()
 				_records[i]->Display();
 			}
 		}
-		//Console::Lock(true);
-		//cout << "Press ESC to return Menu" << endl;
-		//Console::Lock(false);
-		//Sleep(20);
-		//if (GetAsyncKeyState(VK_ESCAPE))
-		//	return;
 	}
 	system("pause");
 }
